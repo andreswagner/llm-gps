@@ -12,7 +12,6 @@ st.title("💬 Santander GPS")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{
         "role": "assistant",
-        "avatar_style" = "shapes",
         "content": "Hola, soy un asistente que te ayuda a estructurar un problema. ¿Qué problema tienes?"}]
 
 with st.form("chat_input", clear_on_submit=True):
@@ -25,7 +24,7 @@ with st.form("chat_input", clear_on_submit=True):
     b.form_submit_button("Enviar", use_container_width=True)
 
 for msg in st.session_state.messages:
-    message(msg["content"], is_user=msg["role"] == "user")
+    message(msg["content"], is_user=msg["role"] == "user", avatar_style="shapes")
 
 if user_input and not openai_api_key:
     st.info("OpenAI API key")
