@@ -35,9 +35,7 @@ chain = LLMChain(llm=chat, prompt=chat_prompt)
 
 def generate_response(input_text):
   llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
-  chat = ChatOpenAI(streaming=True, callbacks=[StreamingStdOutCallbackHandler()], temperature=0)
-  resp = chat([HumanMessage(content="Write me a song about sparkling water.")])
-  st.info(resp)
+  st.info(input_text)
 
 with st.form('my_form'):
   text = st.text_area('Enter text:', 'I love programming.')
