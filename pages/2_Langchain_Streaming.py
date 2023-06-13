@@ -28,6 +28,8 @@ human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 with st.sidebar:
   openai_api_key = st.text_input('OpenAI API Key')
 
+chat = ChatOpenAI(temperature=0)
+
 chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, example_human, example_ai, human_message_prompt])
 chain = LLMChain(llm=chat, prompt=chat_prompt)
 
