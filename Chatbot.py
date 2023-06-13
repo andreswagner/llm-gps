@@ -12,6 +12,7 @@ st.title("💬 Santander GPS")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{
         "role": "assistant",
+        "avatar_style" = "shapes",
         "content": "Hola, soy un asistente que te ayuda a estructurar un problema. ¿Qué problema tienes?"}]
 
 with st.form("chat_input", clear_on_submit=True):
