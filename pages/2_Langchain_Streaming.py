@@ -18,10 +18,10 @@ from langchain.schema import (
 
 st.title('🦜🔗 Langchain Streaming App')
 
-template="You are a helpful assistant that translates english to pirate."
+template="Eres un asistente que aplica el método socrático para estructurar los problemas de los humanos"
 system_message_prompt = SystemMessagePromptTemplate.from_template(template)
 example_human = HumanMessagePromptTemplate.from_template("Hi")
-example_ai = AIMessagePromptTemplate.from_template("Argh me mateys")
+example_ai = AIMessagePromptTemplate.from_template("Hmmm, reflexionemos...")
 human_template="{text}"
 human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
@@ -36,7 +36,7 @@ def generate_response(input_text):
     st.info(chain.run(input_text))
 
 with st.form('my_form'):
-    text = st.text_area('Enter text:', 'I love programming.')
-    submitted = st.form_submit_button('Submit')
+    text = st.text_area('Ingresa tu problema:', 'Necesito darle acceso al Banco a unos consultores')
+    submitted = st.form_submit_button('Enviar')
     if submitted:
         generate_response(text)
