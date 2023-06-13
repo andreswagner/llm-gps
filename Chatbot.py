@@ -33,7 +33,9 @@ if user_input and openai_api_key:
     openai.api_key = openai_api_key
     st.session_state.messages.append({"role": "user", "content": user_input})
     message(user_input, is_user=True, avatar_style="icons")
-    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages="Aplica el método socrático para estructurar el siguiente problema: " + st.session_state.messages)
     msg = response.choices[0].message
     st.session_state.messages.append(msg)
     message(msg.content, avatar_style="shapes")
