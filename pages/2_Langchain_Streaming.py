@@ -18,10 +18,10 @@ from langchain.schema import (
 
 st.title('🦜🔗 Langchain Streaming App')
 
-template="Eres un asistente que aplica el método socrático para estructurar los problemas de los humanos"
+template="Eres un asistente que aplica el método socrático para estructurar los problemas que te comentan"
 system_message_prompt = SystemMessagePromptTemplate.from_template(template)
 example_human = HumanMessagePromptTemplate.from_template("Hi")
-example_ai = AIMessagePromptTemplate.from_template("Hmmm, reflexionemos...")
+example_ai = AIMessagePromptTemplate.from_template("Hmmm, estructuremos esto por parte: 1. 2. 3.")
 human_template="{text}"
 human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
