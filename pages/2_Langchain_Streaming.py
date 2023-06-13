@@ -28,17 +28,15 @@ human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 with st.sidebar:
     openai_api_key = st.text_input('OpenAI API Key')
 
-
-
 def generate_response(input_text):
     chat = ChatOpenAI(temperature=0.7, openai_api_key=openai_api_key)
     chat_prompt = ChatPromptTemplate.from_messages(
         [system_message_prompt, example_human, example_ai, human_message_prompt])
     chain = LLMChain(llm=chat, prompt=chat_prompt)
-    st.info(input_text)
+    st.info(chain.run(input_text))
 
 with st.form('my_form'):
     text = st.text_area('Enter text:', 'I love programming.')
     submitted = st.form_submit_button('Submit')
     if submitted:
-        chain.run(text)
+        generate_response(text)
