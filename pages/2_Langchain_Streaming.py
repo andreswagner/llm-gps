@@ -34,6 +34,7 @@ def generate_response(input_text):
         [system_message_prompt, example_human, example_ai, human_message_prompt])
     chain = LLMChain(llm=chat, prompt=chat_prompt)
     st.info(chain.run(input_text))
+    new_input_form(input_text)
 def new_input_form(input_text):
     with st.form('my_form'):
         st.text_area('Edita la descripción de tu problema:', input_text)
